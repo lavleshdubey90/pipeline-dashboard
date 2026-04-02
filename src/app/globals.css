@@ -55,7 +55,7 @@
 
   --border: 1px;
   --depth: 1;
-  --noise: 0.5;
+  --noise: 0;
 }
 
 @theme inline {
