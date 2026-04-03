@@ -11,7 +11,7 @@ const CandidatesTable: React.FC = () => {
                 <table className="table">
                     {/* head */}
                     <thead className='bg-base-200'>
-                        <tr>
+                        <tr className='h-16'>
                             <th>S.No</th>
                             <th>Name</th>
                             <th>Current Role</th>
@@ -28,17 +28,15 @@ const CandidatesTable: React.FC = () => {
                         {/* row 1 */}
                         {candidateData.map((candidate, index) => (
                             <tr key={candidate.id}>
-                                <th>
-                                    <label>
-                                        <input type="checkbox" className="checkbox" />
-                                    </label>
+                                <th className='font-bold'>
+                                    {index + 1}
                                 </th>
                                 <td>
                                     <div className="flex items-center gap-3">
                                         <div className="avatar">
                                             <div className="size-12 rounded-full">
                                                 <Image
-                                                    src="https://img.daisyui.com/images/profile/demo/2@94.webp"
+                                                    src={candidate.avatar || ""}
                                                     alt="Avatar Tailwind CSS Component"
                                                     width={48}
                                                     height={48}
@@ -65,11 +63,11 @@ const CandidatesTable: React.FC = () => {
                                     <StatusBadge status={candidate.status} />
                                 </td>
                                 <td>
-                                    <MatchScoreProgress matchScore={candidate.matchScore} />
+                                    <MatchScoreProgress matchScore={candidate.matchScore} type="score"/>
                                 </td>
                                 <td>{candidate.lastActivity}</td>
                                 <th>
-                                    <button className="btn btn-link btn-sm">View</button>
+                                    <button className="btn btn-link no-underline btn-sm">View</button>
                                 </th>
                             </tr>
                         ))}
