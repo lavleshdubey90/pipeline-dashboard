@@ -11,6 +11,8 @@ export const jobsData: Job[] = [
         salary: "$120k - $160k",
         postedDate: "2 days ago",
         applicants: 47,
+        openPositions: 2,
+        hiringManager: "Sarah Chen",
         status: "active",
         description: "We're looking for an experienced Frontend Developer to join our growing engineering team. You'll be responsible for building scalable web applications using React and modern tooling.",
         requirements: [
@@ -38,6 +40,8 @@ export const jobsData: Job[] = [
         salary: "$130k - $170k",
         postedDate: "5 days ago",
         applicants: 32,
+        openPositions: 1,
+        hiringManager: "Michael Ross",
         status: "active",
         description: "Join our product team to lead the development of innovative features. You'll work closely with engineering, design, and marketing to deliver products that delight our customers.",
         requirements: [
@@ -65,6 +69,8 @@ export const jobsData: Job[] = [
         salary: "$100k - $140k",
         postedDate: "1 week ago",
         applicants: 28,
+        openPositions: 2,
+        hiringManager: "Jessica Wong",
         status: "active",
         description: "We're seeking a creative UX/UI Designer to craft beautiful and intuitive user experiences. You'll own the design process from research to final pixel-perfect designs.",
         requirements: [
@@ -92,6 +98,8 @@ export const jobsData: Job[] = [
         salary: "$110k - $150k",
         postedDate: "3 days ago",
         applicants: 19,
+        openPositions: 3,
+        hiringManager: "David Kumar",
         status: "active",
         description: "Looking for a Backend Engineer to build robust APIs and microservices. You'll work with Node.js, PostgreSQL, and AWS to power our platform.",
         requirements: [
@@ -119,6 +127,8 @@ export const jobsData: Job[] = [
         salary: "$90k - $120k",
         postedDate: "4 days ago",
         applicants: 15,
+        openPositions: 1,
+        hiringManager: "Emily Watson",
         status: "active",
         description: "Lead our marketing efforts to drive growth and brand awareness. You'll develop and execute strategies across digital channels to acquire and retain customers.",
         requirements: [
@@ -146,6 +156,8 @@ export const jobsData: Job[] = [
         salary: "$115k - $155k",
         postedDate: "1 day ago",
         applicants: 12,
+        openPositions: 2,
+        hiringManager: "Alex Thompson",
         status: "active",
         description: "Join our infrastructure team to build and maintain our cloud infrastructure. You'll focus on automation, monitoring, and reliability.",
         requirements: [

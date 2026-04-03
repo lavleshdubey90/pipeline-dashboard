@@ -1,12 +1,12 @@
 import React from 'react';
 
-interface DashboardOverviewCardProps {
+interface StatCardProps {
     title: string;
     value: string;
     className: string;
 }
 
-const DashboardOverviewCard: React.FC<DashboardOverviewCardProps> = ({ title, value, className }) => {
+const StatCard: React.FC<StatCardProps> = ({ title, value, className }) => {
     return (
         <div className={`rounded-box p-5 border-l-4 bg-base-200 ${className}`}>
             <p className="text-3xl font-bold text-base-content">{value}</p>
@@ -15,4 +15,4 @@ const DashboardOverviewCard: React.FC<DashboardOverviewCardProps> = ({ title, va
     )
 }
 
-export default DashboardOverviewCard;
+export default StatCard;

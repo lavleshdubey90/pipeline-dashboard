@@ -8,11 +8,11 @@ interface DashboardLayoutProps {
 
 const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
     return (
-        <main className="h-dvh w-full flex flex-1 p-5 gap-5 drawer lg:drawer-open">
+        <main className="h-dvh w-full flex flex-1 p-5 gap-5">
             <Sidebar />
-            <div className="flex flex-col w-full gap-5 drawer-content">
+            <div className="flex flex-col w-full gap-5">
                 <Header />
-                <div className="flex-1">
+                <div className="flex-1 h-full flex flex-col overflow-y-auto">
                     {children}
                 </div>
             </div>

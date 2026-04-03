@@ -12,6 +12,8 @@ export interface Job {
     salary: string;
     postedDate: string;
     applicants: number;
+    openPositions: number;
+    hiringManager: string;
     status: "active" | "paused" | "closed";
     description: string;
     requirements: string[];

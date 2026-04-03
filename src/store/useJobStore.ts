@@ -12,7 +12,7 @@ type JobStore = {
 
 export const useJobStore = create<JobStore>((set, get) => ({
     jobs: jobsData,
-    selectedJobId: null,
+    selectedJobId: jobsData[0].id,
     setJobs: (jobs: Job[]) => set({ jobs }),
     setSelectedJobId: (jobId: string) => set({ selectedJobId: jobId }),
     getJobById: (id: string) => get().jobs.find((job) => job.id === id),
