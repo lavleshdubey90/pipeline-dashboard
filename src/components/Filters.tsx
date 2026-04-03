@@ -1,17 +1,13 @@
 "use client";
 
-import React, { useState } from 'react';
+import React from 'react';
 import { CANDIDATE_STAGES } from '@/constants';
+import { useFilterStore, ScoreRange } from '@/store/useFilterStore';
 import { Search, X } from 'lucide-react';
+import { CandidateStatus } from '@/types';
 
 const Filters: React.FC = () => {
-
-    const [filters, setFilters] = useState({
-        search: '',
-        stage: 'Select Stage',
-        experience: 'Select Experience',
-        score: 'Select Score'
-    });
+    const { filters, setFilter, resetFilters } = useFilterStore();
 
     return (
         <React.Fragment>
@@ -23,58 +19,53 @@ const Filters: React.FC = () => {
                         type="text"
                         placeholder="Search by name or email..."
                         value={filters.search}
-                        onChange={(e) => setFilters({ ...filters, search: e.target.value })}
+                        onChange={(e) => setFilter("search", e.target.value)}
                     />
                 </label>
 
                 {/* Stage Filter */}
                 <select
-                    defaultValue="Select Stage"
                     className="select w-40"
                     value={filters.stage}
-                    onChange={(e) => setFilters({ ...filters, stage: e.target.value })}
+                    onChange={(e) => setFilter("stage", e.target.value as CandidateStatus | "All")}
                 >
-                    <option disabled={true}>Select Stage</option>
+                    <option value="All">All Stages</option>
                     {CANDIDATE_STAGES.map((stage) => (
-                        <option key={stage.label}>{stage.label}</option>
+                        <option key={stage.label} value={stage.label}>{stage.label}</option>
                     ))}
                 </select>
 
                 {/* Experience Filter */}
                 <select
-                    defaultValue="Select Experience"
                     className="select w-40"
                     value={filters.experience}
-                    onChange={(e) => setFilters({ ...filters, experience: e.target.value })}
+                    onChange={(e) => setFilter("experience", e.target.value)}
                 >
-                    <option disabled={true}>Select Experience</option>
-                    <option>0-2 years</option>
-                    <option>3-5 years</option>
-                    <option>6+ years</option>
+                    <option value="All">All Experience</option>
+                    <option value="0-2">0-2 years</option>
+                    <option value="3-5">3-5 years</option>
+                    <option value="6+">6+ years</option>
                 </select>
 
                 {/* Score Filter */}
                 <select
-                    defaultValue="Select Score"
                     className="select w-40"
-                    value={filters.score}
-                    onChange={(e) => setFilters({ ...filters, score: e.target.value })}
+                    value={filters.scoreRange}
+                    onChange={(e) => setFilter("scoreRange", e.target.value as ScoreRange)}
                 >
-                    <option disabled={true}>Select Score</option>
-                    <option>0-20%</option>
-                    <option>21-40%</option>
-                    <option>41-60%</option>
-                    <option>61-80%</option>
-                    <option>81-100%</option>
+                    <option value="All">All Scores</option>
+                    <option value="81-100">81-100%</option>
+                    <option value="61-80">61-80%</option>
+                    <option value="41-60">41-60%</option>
+                    <option value="21-40">21-40%</option>
+                    <option value="0-20">0-20%</option>
                 </select>
+
                 <button
                     className="btn btn-error btn-soft btn-square btn-md"
-                    onClick={() => setFilters({
-                        search: '',
-                        stage: 'Select Stage',
-                        experience: 'Select Experience',
-                        score: 'Select Score'
-                    })}>
+                    onClick={resetFilters}
+                    title="Clear filters"
+                >
                     <X />
                 </button>
             </div>
