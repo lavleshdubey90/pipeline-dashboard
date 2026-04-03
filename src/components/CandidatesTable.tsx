@@ -3,10 +3,13 @@ import { candidateData } from '@/data';
 import StatusBadge from '@/components/StatusBadge';
 import MatchScoreProgress from '@/components/MatchScoreProgress';
 import Image from 'next/image';
+import Filters from '@/components/Filters';
 
 const CandidatesTable: React.FC = () => {
     return (
         <React.Fragment>
+            <Filters />
+
             <div className="overflow-x-auto rounded-box">
                 <table className="table">
                     {/* head */}
@@ -63,7 +66,7 @@ const CandidatesTable: React.FC = () => {
                                     <StatusBadge status={candidate.status} />
                                 </td>
                                 <td>
-                                    <MatchScoreProgress matchScore={candidate.matchScore} type="score"/>
+                                    <MatchScoreProgress matchScore={candidate.matchScore} type="score" />
                                 </td>
                                 <td>{candidate.lastActivity}</td>
                                 <th>
