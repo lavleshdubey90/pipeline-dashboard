@@ -18,6 +18,7 @@ const Sidebar: React.FC = () => {
                 duration-300 transition-all ease-in-out`}
         >
 
+            {/* Logo and toggle button */}
             <div className={`flex justify-between items-center ${!isOpen && 'justify-center'}`}>
                 <Image hidden={!isOpen} src="/logo.svg" alt="Logo" width={100} height={100} className='invert w-32 h-auto' />
 
@@ -33,9 +34,12 @@ const Sidebar: React.FC = () => {
                 </label>
             </div>
 
+            {/* Divider */}
             <div className="divider opacity-50" />
 
+            {/* Navigation links */}
             <div className='flex-1 flex flex-col justify-between w-full'>
+                {/* Main Links */}
                 <ul className="w-full menu p-0! space-y-2">
                     {SIDEBAR_MAIN_LINKS.map((link) => (
                         <li
@@ -57,6 +61,7 @@ const Sidebar: React.FC = () => {
                     ))}
                 </ul>
 
+                {/* Bottom Links */}
                 <ul className="w-full menu p-0! space-y-2">
                     {SIDEBAR_BOTTOM_LINKS.map((link) => (
                         <li key={link.href} className={isOpen ? 'w-full' : 'w-fit tooltip tooltip-right'} data-tip={link.name}>

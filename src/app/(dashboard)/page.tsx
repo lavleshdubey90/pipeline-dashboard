@@ -7,12 +7,12 @@ import CandidatesTable from "@/components/CandidatesTable";
 const dashboardOverview = [
   {
     title: "Active Jobs Post",
-    value: "24",
+    value: "2",
     className: "border-primary"
   },
   {
     title: "Total Candidates",
-    value: "593",
+    value: "342",
     className: "border-secondary"
   },
   {
@@ -22,7 +22,7 @@ const dashboardOverview = [
   },
   {
     title: "Total Interviews",
-    value: "89",
+    value: "7",
     className: "border-success"
   }
 ];
@@ -55,6 +55,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Candidates Table */}
       <section className="mt-10">
         <div className="space-y-2">
           <h2 className="text-xl font-bold">Candidates</h2>

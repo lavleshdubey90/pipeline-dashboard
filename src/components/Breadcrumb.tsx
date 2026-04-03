@@ -6,8 +6,6 @@ import React from "react";
 
 const Breadcrumb: React.FC = () => {
     const pathname = usePathname();
-
-    // Split path into segments
     const pathSegments = pathname.split("/").filter(Boolean);
 
     return (

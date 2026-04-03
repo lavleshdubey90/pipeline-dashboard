@@ -8,6 +8,7 @@ import Image from 'next/image';
 import Filters from '@/components/Filters';
 import { useFilterStore } from '@/store/useFilterStore';
 import { Candidate } from '@/types';
+import ViewCandidateDetails from '@/components/ViewCandidateDetails';
 
 const CandidatesTable: React.FC = () => {
     const { filters } = useFilterStore();
@@ -113,7 +114,7 @@ const CandidatesTable: React.FC = () => {
                                 </td>
                                 <td>{candidate.lastActivity}</td>
                                 <th>
-                                    <button className="btn btn-link no-underline btn-sm">View</button>
+                                    <ViewCandidateDetails id={candidate.id} />
                                 </th>
                             </tr>
                         ))
