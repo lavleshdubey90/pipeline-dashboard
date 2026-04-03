@@ -44,11 +44,11 @@ export default function Home() {
       {/* Overview Section */}
       <section className="mt-10 flex gap-5 w-full">
         <div className="space-y-2 w-full">
-          <h2 className="text-xl font-bold">Overview</h2>
+          <h2 className="text-xl font-bold">Candidates Status</h2>
           <CandidatesOverview />
         </div>
 
-        <div className="space-y-2 min-w-40 max-w-5xl">
+        <div className="space-y-2 min-w-fit max-w-5xl">
           <h2 className="text-xl font-bold">Jobs</h2>
           <JobsOverview />
         </div>

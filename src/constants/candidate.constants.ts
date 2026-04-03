@@ -1,4 +1,4 @@
-import { Users, Clock, CheckCircle, AlertCircle } from 'lucide-react';
+import { Users, Clock, CheckCircle, AlertCircle, UserCheck } from 'lucide-react';
 
 export const CANDIDATE_STAGES = [
     {
@@ -23,7 +23,7 @@ export const CANDIDATE_STAGES = [
     },
     {
         label: "Hired",
-        icon: CheckCircle,
+        icon: UserCheck,
         color: "success"
     },
 ];
