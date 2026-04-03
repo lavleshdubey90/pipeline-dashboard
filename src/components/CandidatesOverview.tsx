@@ -23,7 +23,7 @@ const CandidatesOverview: React.FC = () => {
                   aria-label={stage.label}
                   defaultChecked={index === 0}
                 />
-                <stage.icon className="size-5" />
+                {/* <stage.icon className="size-5" /> */}
                 <span className={`badge badge-xs font-bold badge-${stage.color}`}>{stageCandidates.length}</span>
               </label>
               <div className="tab-content bg-base-100 border-base-300 p-5">

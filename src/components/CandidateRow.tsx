@@ -1,6 +1,5 @@
-import { CandidateStatus } from "@/types/candidate.types";
 import { candidateData } from "@/data/candidate.data";
-import { CANDIDATE_STAGES } from "@/constants";
+import StatusBadge from "@/components/StatusBadge";
 
 interface CandidateRowProps {
     candidate: typeof candidateData[0];
@@ -8,17 +7,6 @@ interface CandidateRowProps {
 
 
 const CandidateRow: React.FC<CandidateRowProps> = ({ candidate }) => {
-    const getStatusBadge = (status: CandidateStatus) => {
-        const styles: Record<CandidateStatus, string> = {
-            Applied: "badge-primary",
-            Shortlisted: "badge-secondary",
-            Interview: "badge-warning",
-            Offered: "badge-accent",
-            Hired: "badge-success",
-        };
-        return <span className={`badge badge-sm ${styles[status]}`}>{status}</span>;
-    };
-
     const initials = candidate.name.split(" ").map(n => n[0]).join("").slice(0, 2).toUpperCase();
 
     return (
@@ -34,10 +22,10 @@ const CandidateRow: React.FC<CandidateRowProps> = ({ candidate }) => {
             <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2">
                     <h3 className="font-semibold text-sm truncate">{candidate.name}</h3>
-                    {getStatusBadge(candidate.status)}
+                    <StatusBadge status={candidate.status} />
                 </div>
                 <div className="flex items-center gap-2 text-xs text-base-content/60 mt-0.5">
-                    <span className="truncate">{candidate.role}</span>
+                    <span className="truncate">{candidate.currentRole}</span>
                     <span>•</span>
                     <span className="text-primary truncate">{candidate.appliedFor}</span>
                 </div>

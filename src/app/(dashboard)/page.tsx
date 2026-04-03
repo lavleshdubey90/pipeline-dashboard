@@ -2,6 +2,7 @@ import React from "react";
 import StatCard from "@/components/StatCard";
 import JobsOverview from "@/components/JobsOverview";
 import CandidatesOverview from "@/components/CandidatesOverview";
+import CandidatesTable from "@/components/CandidatesTable";
 
 const dashboardOverview = [
   {
@@ -30,7 +31,7 @@ export default function Home() {
   return (
     <React.Fragment>
       {/* Dashboard Stats */}
-      <div className="grid grid-cols-4 gap-5">
+      <section className="grid grid-cols-4 gap-5">
         {dashboardOverview.map((card, index) => (
           <StatCard
             key={index}
@@ -39,7 +40,7 @@ export default function Home() {
             className={`${card.className}`}
           />
         ))}
-      </div>
+      </section>
 
       {/* Overview Section */}
       <section className="mt-10 flex gap-5 w-full">
@@ -51,6 +52,13 @@ export default function Home() {
         <div className="space-y-2 min-w-fit max-w-5xl">
           <h2 className="text-xl font-bold">Jobs</h2>
           <JobsOverview />
+        </div>
+      </section>
+
+      <section className="mt-10">
+        <div className="space-y-2">
+          <h2 className="text-xl font-bold">Candidates</h2>
+          <CandidatesTable />
         </div>
       </section>
     </React.Fragment>

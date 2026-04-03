@@ -3,11 +3,14 @@ export type CandidateStatus = "Applied" | "Shortlisted" | "Interview" | "Offered
 export interface Candidate {
     id: string;
     name: string;
-    role: string;
+    currentRole: string;
+    currentCompany: string;
     appliedFor: string;
     status: CandidateStatus;
     appliedDate: string;
     avatar?: string;
     email: string;
     experience: string;
+    matchScore: number;
+    lastActivity: string;
 }
