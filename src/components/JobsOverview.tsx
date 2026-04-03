@@ -15,15 +15,15 @@ const JobsOverview: React.FC = () => {
         .slice(0, 6);
 
     return (
-        <div className="bg-base-200 rounded-box p-5 h-full flex flex-col">
+        <div className="bg-base-200 rounded-box p-5 max-h-full flex flex-col">
             {/* Jobs Summary Table */}
-            <div className="flex-1 overflow-auto">
+            <div className="flex-1 overflow-auto max-h-96">
                 <div className="flex flex-col gap-2">
                     {activeJobs.map((job: Job) => (
                         <div
                             key={job.id}
                             onClick={() => setSelectedJobId(job.id)}
-                            className="p-3"
+                            className="p-4"
                         >
                             <div className="flex items-center justify-between gap-4">
                                 {/* Job Info */}
@@ -63,11 +63,13 @@ const JobsOverview: React.FC = () => {
             </div>
 
             {/* Footer Actions */}
-            <div className="flex gap-2 mt-4 pt-4 border-t border-base-300">
-                <Link href="/jobs" className="btn btn-primary btn-sm flex-1">
+            <div className="flex gap-2 mt-4 pt-4">
+                <div className="divider"></div>
+                <Link href="/jobs" className="btn btn-primary btn-md flex-1">
                     Manage Jobs
                 </Link>
-                <button className="btn btn-outline btn-sm flex-1">
+                {/* <div className="divider divider-horizontal"></div> */}
+                <button className="btn btn-outline btn-md flex-1">
                     + Post New
                 </button>
             </div>

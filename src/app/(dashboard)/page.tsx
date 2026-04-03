@@ -1,6 +1,7 @@
 import React from "react";
 import StatCard from "@/components/StatCard";
 import JobsOverview from "@/components/JobsOverview";
+import CandidatesOverview from "@/components/CandidatesOverview";
 
 const dashboardOverview = [
   {
@@ -44,10 +45,10 @@ export default function Home() {
       <section className="mt-10 flex gap-5 w-full">
         <div className="space-y-2 w-full">
           <h2 className="text-xl font-bold">Overview</h2>
-          <div className="w-full h-full border border-base-300 bg-base-200 min-h-96 rounded-box"></div>
+          <CandidatesOverview />
         </div>
 
-        <div className="space-y-2 w-5xl">
+        <div className="space-y-2 min-w-40 max-w-5xl">
           <h2 className="text-xl font-bold">Jobs</h2>
           <JobsOverview />
         </div>
