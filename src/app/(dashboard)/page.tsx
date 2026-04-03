@@ -1,4 +1,5 @@
 import DashboardOverviewCard from "@/components/DashboardOverviewCard";
+import ActiveJobsSection from "@/components/ActiveJobsSection";
 
 const dashboardOverview = [
   {
@@ -39,11 +40,7 @@ export default function Home() {
       </div>
 
       {/* Active Jobs */}
-      <div className="mt-10">
-        <h2 className="font-bold text-2xl">Active Jobs</h2>
-        
-        
-      </div>
+      <ActiveJobsSection />
     </div>
   );
 }
