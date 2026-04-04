@@ -1,39 +1,46 @@
-import { candidateData } from "@/data/candidate.data";
-import StatusBadge from "@/components/StatusBadge";
+import Image from "next/image";
+import MatchScoreProgress from "@/components/MatchScoreProgress";
+import { Candidate } from "@/types";
 
 interface CandidateRowProps {
-    candidate: typeof candidateData[0];
+    candidate: Candidate;
 }
 
 
 const CandidateRow: React.FC<CandidateRowProps> = ({ candidate }) => {
-    const initials = candidate.name.split(" ").map(n => n[0]).join("").slice(0, 2).toUpperCase();
-
     return (
-        <div className="flex items-center gap-3 p-3 rounded-lg bg-base-200 hover:bg-base-300 transition-all cursor-pointer group">
-            {/* Avatar */}
-            <div className="avatar avatar-placeholder">
-                <div className="bg-neutral text-neutral-content w-12 border border-base-300 rounded-full">
-                    <span className="text-sm font-bold">{initials}</span>
+        <div
+            draggable
+            className="cursor-move bg-base-200 rounded-box p-3"
+        >
+            <div className="flex items-start gap-2">
+                {/* Avatar */}
+                <div className="avatar avatar-placeholder">
+                    <div className="bg-neutral text-neutral-content w-12 border border-base-300 rounded-full">
+                        <Image
+                            src={candidate.avatar || ""}
+                            alt="Candidate"
+                            width={48}
+                            height={48}
+                        />
+                    </div>
                 </div>
-            </div>
-
-            {/* Info */}
-            <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-2">
-                    <h3 className="font-semibold text-sm truncate">{candidate.name}</h3>
-                    <StatusBadge status={candidate.status} />
+                <div className="flex-1 min-w-0">
+                    <h4 className="font-semibold text-sm text-base-content truncate">
+                        {candidate.name}
+                    </h4>
+                    <p className="text-xs text-base-content/60 truncate">
+                        {candidate.currentRole}
+                    </p>
+                    <div className="flex items-center justify-between gap-2 mt-1">
+                        <span className="text-xs text-primary font-medium">
+                            {candidate.experience}
+                        </span>
+                        <div className="flex items-center gap-1 text-sm">
+                            <MatchScoreProgress matchScore={candidate.matchScore} />
+                        </div>
+                    </div>
                 </div>
-                <div className="flex items-center gap-2 text-xs text-base-content/60 mt-0.5">
-                    <span className="truncate">{candidate.currentRole}</span>
-                    <span>•</span>
-                    <span className="text-primary truncate">{candidate.appliedFor}</span>
-                </div>
-            </div>
-
-            {/* Experience */}
-            <div className="hidden sm:block text-xs text-base-content/50 shrink-0">
-                {candidate.experience}
             </div>
         </div>
     );

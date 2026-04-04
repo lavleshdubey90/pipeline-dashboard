@@ -9,12 +9,12 @@ import { PanelLeftClose, PanelLeftOpen } from 'lucide-react';
 
 const Sidebar: React.FC = () => {
     const path = usePathname();
-    const [isOpen, setIsOpen] = useState<boolean>(false);
+    const [isOpen, setIsOpen] = useState<boolean>(true);
 
     return (
         <aside
             className={`border border-base-300 bg-base-200 p-4 rounded-box flex flex-col 
-                ${isOpen ? 'w-80' : 'w-20'}
+                ${isOpen ? 'w-64 xl:w-80' : 'w-20'}
                 duration-300 transition-all ease-in-out`}
         >
 

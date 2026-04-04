@@ -43,8 +43,8 @@ export default function Home() {
       </section>
 
       {/* Overview Section */}
-      <section className="mt-10 flex gap-5 w-full">
-        <div className="space-y-2 w-full">
+      <section className="mt-10 flex xl:flex-row flex-col gap-5 w-full">
+        <div className="space-y-2 w-full flex flex-col min-h-132 xl:min-h-full flex-1">
           <h2 className="text-xl font-bold">Candidates Status</h2>
           <CandidatesOverview />
         </div>
