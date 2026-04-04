@@ -10,7 +10,7 @@ interface KanbanBoardProps {
 const KanbanBoard: React.FC<KanbanBoardProps> = ({ candidates }) => {
     return (
         // <div className="flex gap-4 overflow-x-auto pb-4">
-        <div className="flex gap-5 min-h-fit absolute">
+        <div className="flex gap-4 lg:gap-5 min-h-fit absolute">
             {CANDIDATE_STAGES.map((stage) => {
                 const stageCandidates = candidates.filter((c) => c.status === stage.label);
                 const StageIcon = stage.icon;

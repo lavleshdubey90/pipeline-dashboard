@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
@@ -11,16 +11,33 @@ const Sidebar: React.FC = () => {
     const path = usePathname();
     const [isOpen, setIsOpen] = useState<boolean>(true);
 
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth < 1024) {
+                setIsOpen(false);
+            } else {
+                setIsOpen(true);
+            }
+        };
+
+        handleResize();
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
     return (
         <aside
-            className={`border border-base-300 bg-base-200 p-4 rounded-box flex flex-col 
+            className={`border border-base-300 bg-base-200 p-4 rounded-box hidden md:flex flex-col 
                 ${isOpen ? 'w-64 xl:w-80' : 'w-20'}
                 duration-300 transition-all ease-in-out`}
         >
 
             {/* Logo and toggle button */}
-            <div className={`flex justify-between items-center ${!isOpen && 'justify-center'}`}>
-                <Image hidden={!isOpen} src="/logo.svg" alt="Logo" width={100} height={100} className='invert w-32 h-auto' />
+            <div className={`hidden lg:flex justify-between items-center ${!isOpen && 'justify-center'}`}>
+                <Image hidden={!isOpen} src="/logo.svg" alt="Logo" width={100} height={100} className='invert w-20 xl:w-32 h-auto' />
 
                 {/* Hiding and showing sidebar */}
                 <label className="btn btn-circle btn-link opacity-50 btn-ghost swap swap-rotate">
@@ -35,7 +52,7 @@ const Sidebar: React.FC = () => {
             </div>
 
             {/* Divider */}
-            <div className="divider opacity-50" />
+            <div className="hidden lg:flex divider opacity-50" />
 
             {/* Navigation links */}
             <div className='flex-1 flex flex-col justify-between w-full'>

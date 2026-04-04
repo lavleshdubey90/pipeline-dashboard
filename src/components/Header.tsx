@@ -2,7 +2,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 
 const Header: React.FC = () => {
   return (
-    <header className='border border-base-300 w-full rounded-box p-4 bg-base-200'>
+    <header className='border border-base-300 w-full rounded-box p-2 lg:p-4 bg-base-200'>
       <nav className="flex justify-between items-center">
         <Breadcrumb />
 
