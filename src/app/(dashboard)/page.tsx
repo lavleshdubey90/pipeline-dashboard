@@ -31,7 +31,7 @@ export default function Home() {
   return (
     <React.Fragment>
       {/* Dashboard Stats */}
-      <section className="grid grid-cols-4 gap-4 lg:gap-5">
+      <section className="grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-5">
         {dashboardOverview.map((card, index) => (
           <StatCard
             key={index}
@@ -49,7 +49,7 @@ export default function Home() {
           <CandidatesOverview />
         </div>
 
-        <div className="space-y-2 min-w-fit max-w-5xl">
+        <div className="space-y-2 min-w-fit md:max-w-5xl">
           <h2 className="text-xl font-bold">Jobs</h2>
           <JobsOverview />
         </div>

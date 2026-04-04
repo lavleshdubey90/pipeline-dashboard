@@ -11,6 +11,7 @@ const Sidebar: React.FC = () => {
     const path = usePathname();
     const [isOpen, setIsOpen] = useState<boolean>(true);
 
+    // Handle sidebar open/close on window resize
     useEffect(() => {
         const handleResize = () => {
             if (window.innerWidth < 1024) {
@@ -37,7 +38,15 @@ const Sidebar: React.FC = () => {
 
             {/* Logo and toggle button */}
             <div className={`hidden lg:flex justify-between items-center ${!isOpen && 'justify-center'}`}>
-                <Image hidden={!isOpen} src="/logo.svg" alt="Logo" width={100} height={100} className='invert w-20 xl:w-32 h-auto' />
+                <Image
+                    hidden={!isOpen}
+                    src="/logo.svg"
+                    alt="Logo"
+                    width={100}
+                    height={100}
+                    preload
+                    className='invert w-20 xl:w-32 h-auto'
+                />
 
                 {/* Hiding and showing sidebar */}
                 <label className="btn btn-circle btn-link opacity-50 btn-ghost swap swap-rotate">

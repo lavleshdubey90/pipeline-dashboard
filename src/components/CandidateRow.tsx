@@ -6,12 +6,17 @@ interface CandidateRowProps {
     candidate: Candidate;
 }
 
-
 const CandidateRow: React.FC<CandidateRowProps> = ({ candidate }) => {
+    const handleDragStart = (e: React.DragEvent) => {
+        e.dataTransfer.setData("candidateId", candidate.id);
+        e.dataTransfer.effectAllowed = "move";
+    };
+
     return (
         <div
             draggable
-            className="cursor-move bg-base-200 rounded-box p-3"
+            onDragStart={handleDragStart}
+            className="cursor-move bg-base-200 rounded-box p-3 hover:bg-base-300 transition-colors"
         >
             <div className="flex items-start gap-2">
                 {/* Avatar */}

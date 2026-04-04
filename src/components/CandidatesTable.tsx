@@ -74,13 +74,13 @@ const CandidatesTable: React.FC = () => {
                             </tr>
                         ) : (
                             filteredCandidates.map((candidate, index) => (
-                            <tr key={candidate.id}>
+                            <tr key={candidate.id} className='sm:text-sm text-xs'>
                                 <th className='font-bold'>
                                     {index + 1}
                                 </th>
                                 <td>
                                     <div className="flex items-center gap-3">
-                                        <div className="avatar">
+                                        <div className="avatar sm:block hidden">
                                             <div className="size-12 rounded-full">
                                                 <Image
                                                     src={candidate.avatar || ""}
@@ -92,17 +92,17 @@ const CandidatesTable: React.FC = () => {
                                         </div>
                                         <div>
                                             <div className="font-bold">{candidate.name}</div>
-                                            <div className="text-sm opacity-50">{candidate.email}</div>
+                                            <div className="text-xs opacity-50">{candidate.email}</div>
                                         </div>
                                     </div>
                                 </td>
-                                <td>
+                                <td className='text-nowrap'>
                                     {candidate.currentRole}
                                 </td>
-                                <td>
+                                <td className='text-nowrap'>
                                     {candidate.currentCompany}
                                 </td>
-                                <td>
+                                <td className='text-nowrap'>
                                     {candidate.appliedFor}
                                 </td>
                                 <td>{candidate.experience}</td>
@@ -112,7 +112,9 @@ const CandidatesTable: React.FC = () => {
                                 <td>
                                     <MatchScoreProgress matchScore={candidate.matchScore} type="score" />
                                 </td>
-                                <td>{candidate.lastActivity}</td>
+                                <td className='text-nowrap'>
+                                    {candidate.lastActivity}
+                                </td>
                                 <th>
                                     <ViewCandidateDetails id={candidate.id} />
                                 </th>

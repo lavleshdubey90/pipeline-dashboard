@@ -1,24 +1,51 @@
-import { Candidate } from '@/types';
-import React from 'react';
+import { Candidate, CandidateStatus } from '@/types';
+import React, { useState } from 'react';
 import CandidateRow from '@/components/CandidateRow';
 import { CANDIDATE_STAGES } from '@/constants';
+import { useCandidateStore } from '@/store/useCandidateStore';
 
 interface KanbanBoardProps {
     candidates: Candidate[];
 }
 
 const KanbanBoard: React.FC<KanbanBoardProps> = ({ candidates }) => {
+    const { updateCandidateStatus } = useCandidateStore();
+    const [dragOverStage, setDragOverStage] = useState<string | null>(null);
+
+    const handleDragOver = (e: React.DragEvent, stageLabel: string) => {
+        e.preventDefault();
+        setDragOverStage(stageLabel);
+    };
+
+    const handleDragLeave = () => {
+        setDragOverStage(null);
+    };
+
+    const handleDrop = (e: React.DragEvent, stageLabel: string) => {
+        e.preventDefault();
+        setDragOverStage(null);
+        const candidateId = e.dataTransfer.getData("candidateId");
+        if (candidateId) {
+            updateCandidateStatus(candidateId, stageLabel as CandidateStatus);
+        }
+    };
+
     return (
-        // <div className="flex gap-4 overflow-x-auto pb-4">
         <div className="flex gap-4 lg:gap-5 min-h-fit absolute">
             {CANDIDATE_STAGES.map((stage) => {
                 const stageCandidates = candidates.filter((c) => c.status === stage.label);
                 const StageIcon = stage.icon;
+                const isDragOver = dragOverStage === stage.label;
 
                 return (
                     <div
                         key={stage.label}
-                        className="flex flex-col bg-base-100 rounded-box border border-base-300 w-80 shrink-0"
+                        onDragOver={(e) => handleDragOver(e, stage.label)}
+                        onDragLeave={handleDragLeave}
+                        onDrop={(e) => handleDrop(e, stage.label)}
+                        className={`flex flex-col bg-base-100 rounded-box border w-80 shrink-0 transition-colors ${
+                            isDragOver ? 'border-primary ring-2 ring-primary/20' : 'border-base-300'
+                        }`}
                     >
                         {/* Kanban Card Header */}
                         <div

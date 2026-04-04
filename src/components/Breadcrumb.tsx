@@ -9,7 +9,7 @@ const Breadcrumb: React.FC = () => {
     const pathSegments = pathname.split("/").filter(Boolean);
 
     return (
-        <div className="breadcrumbs text-sm">
+        <div className="hidden md:block breadcrumbs text-sm">
             <ul>
                 <li>
                     <Link href="/" className={pathname === "/" ? "no-underline cursor-default text-primary" : ""}>Home</Link>

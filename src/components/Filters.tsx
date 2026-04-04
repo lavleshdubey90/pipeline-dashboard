@@ -11,9 +11,9 @@ const Filters: React.FC = () => {
 
     return (
         <React.Fragment>
-            <div className='py-4 px-2 rounded-box flex gap-4'>
+            <div className='py-4 px-2 overflow-x-scroll rounded-box flex gap-4'>
                 {/* Search Filter */}
-                <label className="input">
+                <label className="input min-w-60">
                     <Search className='opacity-50' />
                     <input
                         type="text"
@@ -25,7 +25,7 @@ const Filters: React.FC = () => {
 
                 {/* Stage Filter */}
                 <select
-                    className="select w-40"
+                    className="select w-40 min-w-40"
                     value={filters.stage}
                     onChange={(e) => setFilter("stage", e.target.value as CandidateStatus | "All")}
                 >
@@ -37,7 +37,7 @@ const Filters: React.FC = () => {
 
                 {/* Experience Filter */}
                 <select
-                    className="select w-40"
+                    className="select w-40 min-w-40"
                     value={filters.experience}
                     onChange={(e) => setFilter("experience", e.target.value)}
                 >
@@ -49,7 +49,7 @@ const Filters: React.FC = () => {
 
                 {/* Score Filter */}
                 <select
-                    className="select w-40"
+                    className="select w-40 min-w-40"
                     value={filters.scoreRange}
                     onChange={(e) => setFilter("scoreRange", e.target.value as ScoreRange)}
                 >

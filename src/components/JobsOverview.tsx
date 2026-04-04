@@ -15,7 +15,7 @@ const JobsOverview: React.FC = () => {
         .slice(0, 6);
 
     return (
-        <div className="bg-base-200 rounded-box p-5 max-h-full flex flex-col">
+        <div className="bg-base-200 rounded-box p-3 sm:p-5 max-h-full flex flex-col">
             {/* Jobs Summary Table */}
             <div className="flex-1 overflow-auto max-h-96">
                 <div className="flex flex-col gap-2">
@@ -23,9 +23,9 @@ const JobsOverview: React.FC = () => {
                         <div
                             key={job.id}
                             onClick={() => setSelectedJobId(job.id)}
-                            className="p-4"
+                            className="p-2 sm:p-4"
                         >
-                            <div className="flex items-center justify-between gap-4">
+                            <div className="flex items-center justify-between gap-2 sm:gap-4">
                                 {/* Job Info */}
                                 <div className="flex items-center gap-3 min-w-0 flex-1">
                                     <div className="min-w-0 flex-1">
@@ -43,7 +43,7 @@ const JobsOverview: React.FC = () => {
                                 <div className="flex items-center gap-4 text-sm shrink-0">
 
                                     {/* Hiring Manager */}
-                                    <div className="hidden sm:flex items-center gap-2 min-w-[120px]">
+                                    <div className="hidden sm:flex items-center gap-2 min-w-fit">
                                         <UserCircle className="size-4 text-base-content/50" />
                                         <span className="text-sm text-base-content/80 truncate">
                                             {job.hiringManager}

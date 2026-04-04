@@ -8,7 +8,7 @@ const CandidatesOverview: React.FC = () => {
   const { candidates } = useCandidateStore();
 
   return (
-    <div className="bg-base-200 rounded-box p-5 max-h-full flex flex-1">
+    <div className="max-h-full flex flex-1">
 
       {/* Kanban Board */}
       <div className="w-full overflow-x-scroll relative min-h-fit">
