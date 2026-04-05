@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useEffect, useState } from 'react';
-import { useThemeStore } from '@/store/useThemeStore';
+import type React from "react";
+import { useEffect, useState } from "react";
+import { useThemeStore } from "@/store/useThemeStore";
 
 interface ThemeProviderProps {
   children: React.ReactNode;
@@ -20,17 +21,13 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   // Applying theme when hydrated or changed
   useEffect(() => {
     if (_hasHydrated && theme) {
-      document.documentElement.setAttribute('data-theme', theme);
+      document.documentElement.setAttribute("data-theme", theme);
     }
   }, [theme, _hasHydrated]);
 
   // Show nothing until hydrated to prevent flash
   if (!mounted || !_hasHydrated) {
-    return (
-      <div style={{ visibility: 'hidden' }}>
-        {children}
-      </div>
-    );
+    return <div style={{ visibility: "hidden" }}>{children}</div>;
   }
 
   return <>{children}</>;

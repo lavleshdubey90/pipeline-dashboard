@@ -1,30 +1,30 @@
 import React from "react";
-import StatCard from "@/components/StatCard";
-import JobsOverview from "@/components/JobsOverview";
 import CandidatesOverview from "@/components/CandidatesOverview";
 import CandidatesTable from "@/components/CandidatesTable";
+import JobsOverview from "@/components/JobsOverview";
+import StatCard from "@/components/StatCard";
 
 const dashboardOverview = [
   {
     title: "Active Jobs Post",
     value: "2",
-    className: "border-primary"
+    className: "border-primary",
   },
   {
     title: "Total Candidates",
     value: "342",
-    className: "border-secondary"
+    className: "border-secondary",
   },
   {
     title: "Total Applications",
     value: "1,247",
-    className: "border-accent"
+    className: "border-accent",
   },
   {
     title: "Total Interviews",
     value: "7",
-    className: "border-success"
-  }
+    className: "border-success",
+  },
 ];
 
 export default function Home() {

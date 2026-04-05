@@ -1,2 +1,2 @@
-export * from '@/types/job.types';
-export * from '@/types/candidate.types';
+export * from "@/types/candidate.types";
+export * from "@/types/job.types";

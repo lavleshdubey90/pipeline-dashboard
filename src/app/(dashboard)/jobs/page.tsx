@@ -1,31 +1,22 @@
 "use client";
 
+import { Briefcase, Plus, Search } from "lucide-react";
 import React, { useState } from "react";
-import { Job } from "@/types";
 import JobCard from "@/components/JobCard";
 import { useJobStore } from "@/store/useJobStore";
-import { Plus, Search, Briefcase } from "lucide-react";
+import type { Job } from "@/types";
 
 const Jobs: React.FC = () => {
-  const { jobs, selectedJobId, setSelectedJobId } = useJobStore();
+  const { jobs } = useJobStore();
   const [searchQuery, setSearchQuery] = useState("");
-  const [showMobileDetail, setShowMobileDetail] = useState(false);
 
   const filteredJobs = jobs.filter(
     (job: Job) =>
       job.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       job.department.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      job.location.toLowerCase().includes(searchQuery.toLowerCase())
+      job.location.toLowerCase().includes(searchQuery.toLowerCase()),
   );
 
-  const handleJobSelect = (jobId: string) => {
-    setSelectedJobId(jobId);
-    setShowMobileDetail(true);
-  };
-
-  const handleBackToList = () => {
-    setShowMobileDetail(false);
-  };
   return (
     <React.Fragment>
       {/* Header */}
@@ -59,9 +50,7 @@ const Jobs: React.FC = () => {
       {/* Jobs List */}
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
         {filteredJobs.length > 0 ? (
-          filteredJobs.map((job: Job) => (
-            <JobCard key={job.id} job={job} />
-          ))
+          filteredJobs.map((job: Job) => <JobCard key={job.id} job={job} />)
         ) : (
           <div className="col-span-full text-center py-12">
             <p className="text-base-content/60">No jobs found</p>
@@ -69,7 +58,7 @@ const Jobs: React.FC = () => {
         )}
       </div>
     </React.Fragment>
-  )
-}
+  );
+};
 
 export default Jobs;

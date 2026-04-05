@@ -1,9 +1,15 @@
 "use client";
 
 import { create } from "zustand";
-import { CandidateStatus } from "@/types";
+import type { CandidateStatus } from "@/types";
 
-export type ScoreRange = "All" | "0-20" | "21-40" | "41-60" | "61-80" | "81-100";
+export type ScoreRange =
+  | "All"
+  | "0-20"
+  | "21-40"
+  | "41-60"
+  | "61-80"
+  | "81-100";
 
 export type FilterKey = "search" | "stage" | "experience" | "scoreRange";
 
