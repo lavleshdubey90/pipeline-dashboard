@@ -57,8 +57,8 @@ const Sidebar: React.FC = () => {
             checked={isOpen}
             onChange={() => setIsOpen((prev) => !prev)}
           />
-          <PanelLeftOpen className="swap-on" />
-          <PanelLeftClose className="swap-off" />
+          <PanelLeftOpen className="swap-off" />
+          <PanelLeftClose className="swap-on" />
         </label>
       </div>
 
