@@ -77,8 +77,8 @@ const JobCard: React.FC<JobCardProps> = ({ job }) => {
                 {/* Drawer for Job Details */}
                 <div className="drawer drawer-end">
                     <input id={drawerId} type="checkbox" className="drawer-toggle" />
-                    <div className="drawer-content">
-                        <label htmlFor={drawerId} className="drawer-button btn btn-primary btn-block group/btn">
+                    <div className="drawer-content flex justify-end">
+                        <label htmlFor={drawerId} className="drawer-button btn btn-primary btn-sm group/btn">
                             <span>View Details</span>
                             <ArrowUpRight className="size-4 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
                         </label>

@@ -1,10 +1,22 @@
+"use client";
+
 import Breadcrumb from "@/components/Breadcrumb";
 import { SIDEBAR_BOTTOM_LINKS, SIDEBAR_MAIN_LINKS } from "@/constants";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useState, useEffect } from "react";
 
 const Header: React.FC = () => {
+  const pathname = usePathname();
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+  // Close drawer when pathname changes (page navigation)
+  useEffect(() => {
+    setIsDrawerOpen(false);
+  }, [pathname]);
+
   return (
     <header className='border border-base-300 w-full rounded-box p-2 px-4 lg:p-4 bg-base-200'>
       <nav className="flex justify-between items-center">
@@ -29,15 +41,21 @@ const Header: React.FC = () => {
           width={72}
           height={72}
           preload
-          className="invert md:hidden w-[72px] h-auto"
+          className="logo md:hidden w-[72px] h-auto"
         />
 
         <div className="drawer drawer-end block md:hidden w-fit">
-          <input id="sidebar" type="checkbox" className="drawer-toggle" />
+          <input 
+            id="sidebar" 
+            type="checkbox" 
+            className="drawer-toggle" 
+            checked={isDrawerOpen}
+            onChange={(e) => setIsDrawerOpen(e.target.checked)}
+          />
           <div className="drawer-content">
             {/* Page content here */}
             <label htmlFor="sidebar" className="drawer-button btn btn-primary btn-square btn-link">
-              <Menu className="text-primary-content opacity-50" />
+              <Menu className="text-base-content opacity-50" />
             </label>
           </div>
           <div className="drawer-side">
@@ -47,9 +65,13 @@ const Header: React.FC = () => {
               <div className="flex flex-col gap-2">
                 {/* Close button */}
                 <div className="justify-end flex">
-                  <label htmlFor="sidebar" aria-label='close sidebar'>
-                    <X className="btn btn-ghost btn-error btn-square btn-link size-5" />
-                  </label>
+                  <button 
+                    onClick={() => setIsDrawerOpen(false)}
+                    className="btn btn-ghost btn-error btn-square btn-link"
+                    aria-label='close sidebar'
+                  >
+                    <X className="size-5" />
+                  </button>
                 </div>
 
                 {/* User Avatar */}
@@ -81,9 +103,9 @@ const Header: React.FC = () => {
                     >
                       <Link
                         href={link.href}
+                        onClick={() => setIsDrawerOpen(false)}
                         className={
-                          `p-3 gap-4 rounded-box
-                                ${link.href === '/' && 'bg-primary text-primary-content'}`
+                          `p-3 gap-4 rounded-box ${pathname === link.href ? 'bg-primary text-primary-content' : ''}`
                         }
                       >
                         {link.icon && <link.icon className="size-5" />}
@@ -99,9 +121,9 @@ const Header: React.FC = () => {
                     <li key={link.href} className='w-full'>
                       <Link
                         href={link.href}
+                        onClick={() => setIsDrawerOpen(false)}
                         className={
-                          `p-3 gap-4 rounded-box
-                                ${link.href === '/' && 'bg-primary text-primary-content'}`
+                          `p-3 gap-4 rounded-box ${pathname === link.href ? 'bg-primary text-primary-content' : ''}`
                         }
                       >
                         {link.icon && <link.icon className="size-5" />}

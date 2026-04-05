@@ -45,7 +45,7 @@ const Sidebar: React.FC = () => {
                     width={100}
                     height={100}
                     preload
-                    className='invert w-20 xl:w-32 h-auto'
+                    className='logo w-20 xl:w-32 h-auto'
                 />
 
                 {/* Hiding and showing sidebar */}
