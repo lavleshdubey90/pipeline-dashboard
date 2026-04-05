@@ -2,6 +2,27 @@
 
 A modern, responsive frontend for a recruitment SaaS platform, built as part of an assignment.
 
+---
+
+## 📸 Screenshots
+
+### Dashboard
+![Dashboard](./public/screenshots/dashboard.png)
+
+### Candidate Details
+![Candidate Details](./public/screenshots/candidate-details.png)
+
+### Posted Jobs
+![Posted Jobs](./public/screenshots/posted-jobs.png)
+
+### Posted Job Details
+![Posted Job Details](./public/screenshots/job-details.png)
+
+### Customize Themes
+![Customize Themes](./public/screenshots/customize-themes.png)
+
+---
+
 ## 🚀 Live Demo  
 👉 [View Live Application](https://pipeline-dashboard-gamma.vercel.app)
 
@@ -146,5 +167,3 @@ Given more time, I would:
 
 I’d love to hear your feedback!  
 Feel free to reach out with any suggestions or improvements.
-
----
