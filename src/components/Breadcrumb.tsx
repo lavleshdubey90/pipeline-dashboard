@@ -12,7 +12,7 @@ const Breadcrumb: React.FC = () => {
         <div className="hidden md:block breadcrumbs text-sm">
             <ul>
                 <li>
-                    <Link href="/" className={pathname === "/" ? "no-underline cursor-default text-primary" : ""}>Home</Link>
+                    <Link href="/" className={pathname === "/" ? "no-underline cursor-default text-primary" : ""}>Dashboard</Link>
                 </li>
 
                 {pathSegments.map((segment, index) => {
