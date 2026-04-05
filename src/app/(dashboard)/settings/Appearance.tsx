@@ -1,11 +1,11 @@
 "use client";
 
-import { THEMES } from '@/constants';
+import { THEMES, ThemeId } from '@/constants';
 import { useThemeStore } from '@/store/useThemeStore';
 import React from 'react';
 import { Moon, Sun, Zap, Snowflake, Gamepad2, Sparkles, Check } from 'lucide-react';
 
-const themeIcons: Record<string, React.ReactNode> = {
+const themeIcons: Record<ThemeId, React.ReactNode> = {
     'hirehub-dark': <Moon className="size-5 sm:size-6" />,
     'hirehub-light': <Sun className="size-5 sm:size-6" />,
     'cyberpunk': <Zap className="size-5 sm:size-6" />,
@@ -14,7 +14,7 @@ const themeIcons: Record<string, React.ReactNode> = {
     'neon-noir': <Sparkles className="size-5 sm:size-6" />,
 };
 
-const themePreviews: Record<string, string> = {
+const themePreviews: Record<ThemeId, string> = {
     'hirehub-dark': 'bg-neutral text-neutral-content',
     'hirehub-light': 'bg-base-100 text-base-content border-2 border-base-300',
     'cyberpunk': 'bg-primary text-primary-content',
